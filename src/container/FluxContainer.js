@@ -243,10 +243,11 @@ function enforceInterface(o: any): void {
  *
  */
 function createFunctional<Props, State, A, B>(
-  viewFn: (props: State) => React.Element<State>,
+  viewFn: async (props: State) => await React.Element<State>,
   getStores: (props?: ?Props, context?: any) => Array<FluxStore>,
   calculateState: (prevState?: ?State, props?: ?Props, context?: any) => State,
   options?: Options,
+
 ): ReactClass<Props> {
   class FunctionalContainer extends Component<void, Props, State> {
     state: State;
